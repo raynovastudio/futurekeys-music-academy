@@ -162,3 +162,15 @@
 }
 .animate-fade-up { animation: fade-up 0.7s ease-out both; }
 .animate-piano-key { animation: piano-key 1.8s ease-in-out infinite; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 50s linear infinite;
+  width: fit-content;
+}
+.group:hover .paused {
+  animation-play-state: paused;
+}

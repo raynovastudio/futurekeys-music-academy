@@ -109,6 +109,27 @@ function HomePage() {
         </div>
       </Section>
 
+      {/* GALLERY MARQUEE */}
+      <section className="py-12 md:py-16 overflow-hidden bg-secondary/30">
+        <div className="container mx-auto max-w-7xl px-4 mb-6">
+          <p className="text-xs uppercase tracking-[0.2em] text-gold font-semibold text-center">Our Gallery</p>
+        </div>
+        <div className="group relative">
+          <div className="flex gap-5 marquee-track">
+            {[
+              ...Array.from({ length: 7 }, (_, i) => `/Gallery/performances/performances-${i + 1}.jpeg`),
+              ...Array.from({ length: 7 }, (_, i) => `/Gallery/lessons/lessons-${i + 1}.jpeg`),
+              ...Array.from({ length: 7 }, (_, i) => `/Gallery/events/events-${i + 1}.jpeg`),
+              ...Array.from({ length: 6 }, (_, i) => `/Gallery/instruments/instruments-${i + 1}.jpeg`),
+            ].flatMap((src) => [src, src]).map((src, i) => (
+              <div key={i} className="shrink-0 w-52 h-36 md:w-60 md:h-40 rounded-2xl overflow-hidden shadow-card group-hover:paused">
+                <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* PROGRAMS */}
       <Section muted>
         <SectionHeader eyebrow="Programs" title="Premium Lesson Packages" description="Two classes per week, one hour per session. Choose the format that fits your family." />
