@@ -10,13 +10,13 @@ import lessonImg from "@/assets/programs-students.jpg.asset.json";
 export const Route = createFileRoute("/programs")({
   head: () => ({
     meta: [
-      { title: "Programs & Pricing | FutureKeys Music Academy" },
-      { name: "description", content: "Physical, home and virtual music lessons. ₦30,000-₦60,000/month. Two classes per week, one hour per session. For children ages 3-15 and adult beginners." },
-      { property: "og:title", content: "Programs & Pricing — FutureKeys" },
-      { property: "og:description", content: "Premium lesson packages from ₦30,000/month." },
-      { property: "og:url", content: "/programs" },
+      { title: "Programs & Pricing | FutureKeys Music Academy – Uyo, Nigeria" },
+      { name: "description", content: "Physical hub, home, and virtual music lessons from ₦30,000/month. Two classes per week for children (ages 3–15) and adult beginners in Uyo and worldwide." },
+      { property: "og:title", content: "Programs & Pricing — FutureKeys Music Academy" },
+      { property: "og:description", content: "Premium music lesson packages from ₦30,000/month. Physical, home & virtual options." },
+      { property: "og:url", content: "https://futurekeysacademy.com/programs" },
     ],
-    links: [{ rel: "canonical", href: "/programs" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/programs" }],
   }),
   component: ProgramsPage,
 });

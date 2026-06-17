@@ -16,13 +16,13 @@ import { z } from "zod";
 export const Route = createFileRoute("/enroll")({
   head: () => ({
     meta: [
-      { title: "Enroll Now | FutureKeys Music Academy" },
-      { name: "description", content: "Enroll your child or yourself in FutureKeys premium music lessons. Quick online registration." },
-      { property: "og:title", content: "Enroll at FutureKeys" },
-      { property: "og:description", content: "Register in minutes. Start your musical journey today." },
-      { property: "og:url", content: "/enroll" },
+      { title: "Enroll Now | FutureKeys Music Academy – Uyo, Nigeria" },
+      { name: "description", content: "Register today for premium music lessons in Uyo. Piano, guitar, drums, violin & voice for children and adults. Quick online enrollment." },
+      { property: "og:title", content: "Enroll at FutureKeys Music Academy" },
+      { property: "og:description", content: "Register in minutes. Start your musical journey with FutureKeys today." },
+      { property: "og:url", content: "https://futurekeysacademy.com/enroll" },
     ],
-    links: [{ rel: "canonical", href: "/enroll" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/enroll" }],
   }),
   component: EnrollPage,
 });

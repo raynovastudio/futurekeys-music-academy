@@ -8,13 +8,13 @@ import aboutStudent from "@/assets/about-student-real.jpg.asset.json";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About FutureKeys Music Academy | Our Story, Vision & Mission" },
-      { name: "description", content: "Learn about FutureKeys — Uyo's premium music academy dedicated to developing musical excellence and character in the next generation." },
-      { property: "og:title", content: "About FutureKeys Music Academy" },
-      { property: "og:description", content: "Premium music education built on practical training, mentorship and character." },
-      { property: "og:url", content: "/about" },
+      { title: "About FutureKeys Music Academy | Our Story & Mission in Uyo" },
+      { name: "description", content: "Learn about FutureKeys — Uyo's premium music academy for children and adults. Discover our story, vision, and commitment to musical excellence in Akwa Ibom, Nigeria." },
+      { property: "og:title", content: "About FutureKeys Music Academy | Uyo, Nigeria" },
+      { property: "og:description", content: "Premium music education built on practical training, mentorship and character development in Uyo." },
+      { property: "og:url", content: "https://futurekeysacademy.com/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/about" }],
   }),
   component: AboutPage,
 });

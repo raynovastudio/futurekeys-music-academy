@@ -8,13 +8,13 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
-      { title: "Blog | FutureKeys Music Academy" },
-      { name: "description", content: "Music education insights, practice tips, child development and success stories from FutureKeys." },
-      { property: "og:title", content: "FutureKeys Blog" },
-      { property: "og:description", content: "Insights on music education, practice and child development." },
-      { property: "og:url", content: "/blog" },
+      { title: "Blog | FutureKeys Music Academy – Music Education Insights" },
+      { name: "description", content: "Music education tips, practice advice, child development insights and success stories from FutureKeys Music Academy in Uyo, Nigeria." },
+      { property: "og:title", content: "FutureKeys Blog – Music Education Insights" },
+      { property: "og:description", content: "Tips, advice and stories on music education, practice and child development." },
+      { property: "og:url", content: "https://futurekeysacademy.com/blog" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/blog" }],
   }),
   component: BlogPage,
 });

@@ -13,13 +13,13 @@ import voiceImg from "@/assets/instr-voice.jpg";
 export const Route = createFileRoute("/instruments")({
   head: () => ({
     meta: [
-      { title: "Instruments We Teach | FutureKeys Music Academy" },
-      { name: "description", content: "Piano, keyboard, guitar, drums, violin and voice training. Beginner to advanced levels for children and adults." },
-      { property: "og:title", content: "Instruments — FutureKeys" },
-      { property: "og:description", content: "Six instruments. World-class instruction. Beginner to advanced." },
-      { property: "og:url", content: "/instruments" },
+      { title: "Instruments We Teach | Piano, Guitar, Drums, Violin & Voice" },
+      { name: "description", content: "Expert music instruction in piano, keyboard, guitar, drums, violin and voice. Beginner to advanced levels for children and adults in Uyo & worldwide." },
+      { property: "og:title", content: "Instruments — FutureKeys Music Academy" },
+      { property: "og:description", content: "Piano, guitar, drums, violin, voice & keyboard. World-class instruction for all levels." },
+      { property: "og:url", content: "https://futurekeysacademy.com/instruments" },
     ],
-    links: [{ rel: "canonical", href: "/instruments" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/instruments" }],
   }),
   component: InstrumentsPage,
 });

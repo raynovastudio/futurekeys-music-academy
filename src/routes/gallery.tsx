@@ -8,13 +8,13 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Gallery | FutureKeys Music Academy" },
-      { name: "description", content: "Moments from our physical, home and virtual lessons, student performances and events." },
-      { property: "og:title", content: "Gallery — FutureKeys" },
-      { property: "og:description", content: "See FutureKeys students, performances and events." },
-      { property: "og:url", content: "/gallery" },
+      { title: "Gallery | FutureKeys Music Academy – Student Moments" },
+      { name: "description", content: "Browse moments from our music lessons, student performances, recitals and events in Uyo, Akwa Ibom." },
+      { property: "og:title", content: "Gallery — FutureKeys Music Academy" },
+      { property: "og:description", content: "See FutureKeys students, performances and events in action." },
+      { property: "og:url", content: "https://futurekeysacademy.com/gallery" },
     ],
-    links: [{ rel: "canonical", href: "/gallery" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/gallery" }],
   }),
   component: GalleryPage,
 });

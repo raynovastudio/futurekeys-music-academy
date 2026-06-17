@@ -12,12 +12,12 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "FutureKeys Music Academy | Premium Music Lessons in Uyo, Nigeria" },
-      { name: "description", content: "Premium music education for children (ages 3-15) and adults in Uyo. Piano, guitar, drums, violin, voice. Physical, home & virtual lessons worldwide." },
+      { name: "description", content: "Premium music education for children (ages 3–15) and adults in Uyo. Piano, guitar, drums, violin & voice lessons — physical, home & virtual worldwide." },
       { property: "og:title", content: "FutureKeys Music Academy — The Future of Music Starts Here" },
-      { property: "og:description", content: "Premium practical music training for the next generation of musicians." },
-      { property: "og:url", content: "/" },
+      { property: "og:description", content: "Premium music education for children & adults. Piano, guitar, drums, violin & voice worldwide." },
+      { property: "og:url", content: "https://futurekeysacademy.com" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com" }],
   }),
   component: HomePage,
 });

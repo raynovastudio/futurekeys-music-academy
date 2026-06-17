@@ -14,13 +14,13 @@ import { z } from "zod";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact FutureKeys Music Academy | Uyo, Nigeria" },
-      { name: "description", content: "Get in touch. Phone: 08028869046, 08086834172. Email: futurekeysmusicacademyconsepts@gmail.com. Uyo, Akwa Ibom." },
-      { property: "og:title", content: "Contact FutureKeys" },
-      { property: "og:description", content: "Call, message or visit our Uyo academy." },
-      { property: "og:url", content: "/contact" },
+      { title: "Contact FutureKeys Music Academy | Uyo, Akwa Ibom, Nigeria" },
+      { name: "description", content: "Call 08028869046 or 08086834172. Email futurekeysmusicacademyconsepts@gmail.com. Visit our music academy in Uyo, Akwa Ibom State, Nigeria." },
+      { property: "og:title", content: "Contact FutureKeys Music Academy | Uyo, Nigeria" },
+      { property: "og:description", content: "Call, message or visit our Uyo music academy. Start your musical journey today." },
+      { property: "og:url", content: "https://futurekeysacademy.com/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://futurekeysacademy.com/contact" }],
   }),
   component: ContactPage,
 });
