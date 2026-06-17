@@ -18,17 +18,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 
 const trackVisit = createServerFn({ method: "POST" })
-  .handler(async ({ request }) => {
+  .handler(async ({ data }: { data: { path: string; referrer: string | null; userAgent: string | null } }) => {
     try {
+      if (data.path.startsWith("/admin") || data.path.startsWith("/auth")) return;
       const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      const url = new URL(request.headers.get("referer") || "/");
-      const path = url.pathname;
-      if (path.startsWith("/admin") || path.startsWith("/auth")) return;
       await supabaseAdmin.from("page_visits").insert({
-        path,
-        referrer: request.headers.get("referer") || null,
-        user_agent: request.headers.get("user-agent") || null,
-        ip_address: request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null,
+        path: data.path,
+        referrer: data.referrer,
+        user_agent: data.userAgent,
       });
     } catch {}
   });
@@ -178,7 +175,7 @@ function LayoutShell() {
   useEffect(() => {
     if (tracked.current !== pathname) {
       tracked.current = pathname;
-      trackVisit();
+      trackVisit({ data: { path: pathname, referrer: document.referrer || null, userAgent: navigator.userAgent || null } });
     }
   }, [pathname]);
   const isAdmin = pathname.startsWith("/admin");
