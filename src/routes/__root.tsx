@@ -1,4 +1,3 @@
-import { createServerFn } from "@tanstack/react-start";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -16,19 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
-
-const trackVisit = createServerFn({ method: "POST" })
-  .handler(async ({ data }: { data: { path: string; referrer: string | null; userAgent: string | null } }) => {
-    try {
-      if (data.path.startsWith("/admin") || data.path.startsWith("/auth")) return;
-      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
-      await supabaseAdmin.from("page_visits").insert({
-        path: data.path,
-        referrer: data.referrer,
-        user_agent: data.userAgent,
-      });
-    } catch {}
-  });
+import { supabase } from "@/integrations/supabase/client";
 
 function NotFoundComponent() {
   return (
@@ -175,7 +162,12 @@ function LayoutShell() {
   useEffect(() => {
     if (tracked.current !== pathname) {
       tracked.current = pathname;
-      trackVisit({ data: { path: pathname, referrer: document.referrer || null, userAgent: navigator.userAgent || null } });
+      if (pathname.startsWith("/admin") || pathname.startsWith("/auth")) return;
+      supabase.from("page_visits").insert({
+        path: pathname,
+        referrer: document.referrer || null,
+        user_agent: navigator.userAgent || null,
+      }).then();
     }
   }, [pathname]);
   const isAdmin = pathname.startsWith("/admin");
