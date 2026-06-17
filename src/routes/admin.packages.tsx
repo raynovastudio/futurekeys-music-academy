@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/studio/packages")({ component: PackagesAdmin });
+export const Route = createFileRoute("/admin/packages")({ component: PackagesAdmin });
 
 function PackagesAdmin() {
   const qc = useQueryClient();

@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/studio/messages")({ component: MessagesPage });
+export const Route = createFileRoute("/admin/messages")({ component: MessagesPage });
 
 function MessagesPage() {
   const qc = useQueryClient();

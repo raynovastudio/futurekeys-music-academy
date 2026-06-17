@@ -131,7 +131,7 @@ import { useRouterState } from "@tanstack/react-router";
 
 function LayoutShell() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
-  const isAdmin = pathname.startsWith("/studio");
+  const isAdmin = pathname.startsWith("/admin");
   if (isAdmin) {
     return <Outlet />;
   }

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import logo1 from "@/assets/1.png";
 
-export const Route = createFileRoute("/studio")({
+export const Route = createFileRoute("/admin")({
   ssr: false,
   beforeLoad: async () => {
     const { data: u } = await supabase.auth.getUser();
@@ -18,13 +18,13 @@ export const Route = createFileRoute("/studio")({
 });
 
 const nav: Array<{ to: string; label: string; icon: any; exact?: boolean }> = [
-  { to: "/studio", label: "Dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/studio/students", label: "Students", icon: Users },
-  { to: "/studio/messages", label: "Messages", icon: MessageSquare },
-  { to: "/studio/blog", label: "Blog", icon: FileText },
-  { to: "/studio/gallery", label: "Gallery", icon: ImageIcon },
-  { to: "/studio/testimonials", label: "Testimonials", icon: Star },
-  { to: "/studio/packages", label: "Packages", icon: Package },
+  { to: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
+  { to: "/admin/students", label: "Students", icon: Users },
+  { to: "/admin/messages", label: "Messages", icon: MessageSquare },
+  { to: "/admin/blog", label: "Blog", icon: FileText },
+  { to: "/admin/gallery", label: "Gallery", icon: ImageIcon },
+  { to: "/admin/testimonials", label: "Testimonials", icon: Star },
+  { to: "/admin/packages", label: "Packages", icon: Package },
 ];
 
 function AdminLayout() {

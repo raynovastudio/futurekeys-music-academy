@@ -4,7 +4,7 @@ import { Users, MessageSquare, FileText, Star, TrendingUp, Clock } from "lucide-
 import { Card } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 
-export const Route = createFileRoute("/studio/")({
+export const Route = createFileRoute("/admin/")({
   component: AdminDashboard,
 });
 

@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/studio/gallery")({ component: GalleryAdmin });
+export const Route = createFileRoute("/admin/gallery")({ component: GalleryAdmin });
 
 const BUCKET = "gallery-images";
 const cats = ["Physical Lessons","Home Lessons","Virtual Lessons","Student Performances","Events"];
