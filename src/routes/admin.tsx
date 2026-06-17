@@ -43,7 +43,7 @@ function AdminLayout() {
       <aside className={cn("fixed lg:static z-40 inset-y-0 left-0 w-64 bg-sidebar text-sidebar-foreground transition-transform", open ? "translate-x-0" : "-translate-x-full lg:translate-x-0")}>
         <div className="flex h-16 items-center gap-2.5 px-5 border-b border-sidebar-border">
           <Link to="/" className="flex items-center gap-2.5">
-            <img src={logo1} alt="FutureKeys" className="h-8 w-auto object-contain" />
+            <img src={logo1} alt="FutureKeys" className="h-8 w-auto object-contain brightness-0 invert" />
           </Link>
           <span className="text-[10px] uppercase tracking-wider text-sidebar-foreground/60 ml-auto">Admin</span>
         </div>
