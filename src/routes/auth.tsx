@@ -38,7 +38,7 @@ function AuthPage() {
       if (event === "PASSWORD_RECOVERY") setMode("reset");
     });
     supabase.auth.getSession().then(({ data }) => {
-      if (data.session) navigate({ to: "/admin" });
+      if (data.session) navigate({ to: "/studio" });
     });
     return () => listener?.subscription.unsubscribe();
   }, [navigate]);
@@ -64,7 +64,7 @@ function AuthPage() {
       if (error) return toast.error(error.message);
       toast.success("Password updated. Signing in…");
       supabase.auth.getSession().then(({ data }) => {
-        if (data.session) navigate({ to: "/admin" });
+        if (data.session) navigate({ to: "/studio" });
       });
       return;
     }
@@ -72,7 +72,7 @@ function AuthPage() {
     if (mode === "signup") {
       const { error } = await supabase.auth.signUp({
         email, password,
-        options: { emailRedirectTo: window.location.origin + "/admin", data: { full_name: fullName } },
+        options: { emailRedirectTo: window.location.origin + "/studio", data: { full_name: fullName } },
       });
       setLoading(false);
       if (error) return toast.error(error.message);
@@ -82,12 +82,12 @@ function AuthPage() {
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       setLoading(false);
       if (error) return toast.error(error.message);
-      navigate({ to: "/admin" });
+      navigate({ to: "/studio" });
     }
   }
 
   async function onGoogle() {
-    const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/admin" });
+    const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/studio" });
     if (r.error) toast.error("Could not start Google sign-in");
   }
 

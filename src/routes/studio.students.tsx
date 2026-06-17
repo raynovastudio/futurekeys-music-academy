@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/admin/students")({ component: StudentsPage });
+export const Route = createFileRoute("/studio/students")({ component: StudentsPage });
 
 const statuses = ["Pending", "Contacted", "Active", "Inactive"];
 

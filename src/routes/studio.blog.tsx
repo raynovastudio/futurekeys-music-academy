@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/admin/blog")({ component: BlogAdmin });
+export const Route = createFileRoute("/studio/blog")({ component: BlogAdmin });
 
 type Post = {
   id?: string; title: string; slug: string; content: string; excerpt: string;

@@ -11,7 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/admin/testimonials")({ component: TestimonialsAdmin });
+export const Route = createFileRoute("/studio/testimonials")({ component: TestimonialsAdmin });
 
 function TestimonialsAdmin() {
   const qc = useQueryClient();

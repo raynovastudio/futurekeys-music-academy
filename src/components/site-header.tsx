@@ -62,9 +62,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <Button asChild variant="ghost" size="sm">
-            <Link to="/auth">Sign in</Link>
-          </Button>
           <Button asChild variant="gold" size="default">
             <Link to="/enroll">Enroll Now</Link>
           </Button>
@@ -95,9 +92,6 @@ export function SiteHeader() {
               </Link>
             ))}
             <div className="mt-2 flex flex-col gap-2">
-              <Button asChild variant="outline">
-                <Link to="/auth">Sign in</Link>
-              </Button>
               <Button asChild variant="gold">
                 <Link to="/enroll">Enroll Now</Link>
               </Button>

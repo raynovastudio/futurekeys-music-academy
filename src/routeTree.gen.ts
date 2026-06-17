@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as StudioRouteImport } from './routes/studio'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as InstrumentsRouteImport } from './routes/instruments'
@@ -18,21 +19,25 @@ import { Route as EnrollRouteImport } from './routes/enroll'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as StudioIndexRouteImport } from './routes/studio.index'
+import { Route as StudioTestimonialsRouteImport } from './routes/studio.testimonials'
+import { Route as StudioStudentsRouteImport } from './routes/studio.students'
+import { Route as StudioPackagesRouteImport } from './routes/studio.packages'
+import { Route as StudioMessagesRouteImport } from './routes/studio.messages'
+import { Route as StudioGalleryRouteImport } from './routes/studio.gallery'
+import { Route as StudioBlogRouteImport } from './routes/studio.blog'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
-import { Route as AdminStudentsRouteImport } from './routes/admin.students'
-import { Route as AdminPackagesRouteImport } from './routes/admin.packages'
-import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
-import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
-import { Route as AdminBlogRouteImport } from './routes/admin.blog'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
   path: '/testimonials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioRoute = StudioRouteImport.update({
+  id: '/studio',
+  path: '/studio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -75,11 +80,6 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -90,51 +90,50 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminIndexRoute = AdminIndexRouteImport.update({
+const StudioIndexRoute = StudioIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AdminRoute,
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioTestimonialsRoute = StudioTestimonialsRouteImport.update({
+  id: '/testimonials',
+  path: '/testimonials',
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioStudentsRoute = StudioStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioPackagesRoute = StudioPackagesRouteImport.update({
+  id: '/packages',
+  path: '/packages',
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioMessagesRoute = StudioMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioGalleryRoute = StudioGalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => StudioRoute,
+} as any)
+const StudioBlogRoute = StudioBlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => StudioRoute,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
-const AdminTestimonialsRoute = AdminTestimonialsRouteImport.update({
-  id: '/testimonials',
-  path: '/testimonials',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminStudentsRoute = AdminStudentsRouteImport.update({
-  id: '/students',
-  path: '/students',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminPackagesRoute = AdminPackagesRouteImport.update({
-  id: '/packages',
-  path: '/packages',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminMessagesRoute = AdminMessagesRouteImport.update({
-  id: '/messages',
-  path: '/messages',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminGalleryRoute = AdminGalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminBlogRoute = AdminBlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => AdminRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
@@ -143,15 +142,16 @@ export interface FileRoutesByFullPath {
   '/instruments': typeof InstrumentsRoute
   '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/studio': typeof StudioRouteWithChildren
   '/testimonials': typeof TestimonialsRoute
-  '/admin/blog': typeof AdminBlogRoute
-  '/admin/gallery': typeof AdminGalleryRoute
-  '/admin/messages': typeof AdminMessagesRoute
-  '/admin/packages': typeof AdminPackagesRoute
-  '/admin/students': typeof AdminStudentsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/admin/': typeof AdminIndexRoute
+  '/studio/blog': typeof StudioBlogRoute
+  '/studio/gallery': typeof StudioGalleryRoute
+  '/studio/messages': typeof StudioMessagesRoute
+  '/studio/packages': typeof StudioPackagesRoute
+  '/studio/students': typeof StudioStudentsRoute
+  '/studio/testimonials': typeof StudioTestimonialsRoute
+  '/studio/': typeof StudioIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -165,20 +165,19 @@ export interface FileRoutesByTo {
   '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
-  '/admin/blog': typeof AdminBlogRoute
-  '/admin/gallery': typeof AdminGalleryRoute
-  '/admin/messages': typeof AdminMessagesRoute
-  '/admin/packages': typeof AdminPackagesRoute
-  '/admin/students': typeof AdminStudentsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/admin': typeof AdminIndexRoute
+  '/studio/blog': typeof StudioBlogRoute
+  '/studio/gallery': typeof StudioGalleryRoute
+  '/studio/messages': typeof StudioMessagesRoute
+  '/studio/packages': typeof StudioPackagesRoute
+  '/studio/students': typeof StudioStudentsRoute
+  '/studio/testimonials': typeof StudioTestimonialsRoute
+  '/studio': typeof StudioIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/admin': typeof AdminRouteWithChildren
   '/auth': typeof AuthRoute
   '/blog': typeof BlogRouteWithChildren
   '/contact': typeof ContactRoute
@@ -187,22 +186,22 @@ export interface FileRoutesById {
   '/instruments': typeof InstrumentsRoute
   '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/studio': typeof StudioRouteWithChildren
   '/testimonials': typeof TestimonialsRoute
-  '/admin/blog': typeof AdminBlogRoute
-  '/admin/gallery': typeof AdminGalleryRoute
-  '/admin/messages': typeof AdminMessagesRoute
-  '/admin/packages': typeof AdminPackagesRoute
-  '/admin/students': typeof AdminStudentsRoute
-  '/admin/testimonials': typeof AdminTestimonialsRoute
   '/blog/$slug': typeof BlogSlugRoute
-  '/admin/': typeof AdminIndexRoute
+  '/studio/blog': typeof StudioBlogRoute
+  '/studio/gallery': typeof StudioGalleryRoute
+  '/studio/messages': typeof StudioMessagesRoute
+  '/studio/packages': typeof StudioPackagesRoute
+  '/studio/students': typeof StudioStudentsRoute
+  '/studio/testimonials': typeof StudioTestimonialsRoute
+  '/studio/': typeof StudioIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
-    | '/admin'
     | '/auth'
     | '/blog'
     | '/contact'
@@ -211,15 +210,16 @@ export interface FileRouteTypes {
     | '/instruments'
     | '/programs'
     | '/sitemap.xml'
+    | '/studio'
     | '/testimonials'
-    | '/admin/blog'
-    | '/admin/gallery'
-    | '/admin/messages'
-    | '/admin/packages'
-    | '/admin/students'
-    | '/admin/testimonials'
     | '/blog/$slug'
-    | '/admin/'
+    | '/studio/blog'
+    | '/studio/gallery'
+    | '/studio/messages'
+    | '/studio/packages'
+    | '/studio/students'
+    | '/studio/testimonials'
+    | '/studio/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -233,19 +233,18 @@ export interface FileRouteTypes {
     | '/programs'
     | '/sitemap.xml'
     | '/testimonials'
-    | '/admin/blog'
-    | '/admin/gallery'
-    | '/admin/messages'
-    | '/admin/packages'
-    | '/admin/students'
-    | '/admin/testimonials'
     | '/blog/$slug'
-    | '/admin'
+    | '/studio/blog'
+    | '/studio/gallery'
+    | '/studio/messages'
+    | '/studio/packages'
+    | '/studio/students'
+    | '/studio/testimonials'
+    | '/studio'
   id:
     | '__root__'
     | '/'
     | '/about'
-    | '/admin'
     | '/auth'
     | '/blog'
     | '/contact'
@@ -254,21 +253,21 @@ export interface FileRouteTypes {
     | '/instruments'
     | '/programs'
     | '/sitemap.xml'
+    | '/studio'
     | '/testimonials'
-    | '/admin/blog'
-    | '/admin/gallery'
-    | '/admin/messages'
-    | '/admin/packages'
-    | '/admin/students'
-    | '/admin/testimonials'
     | '/blog/$slug'
-    | '/admin/'
+    | '/studio/blog'
+    | '/studio/gallery'
+    | '/studio/messages'
+    | '/studio/packages'
+    | '/studio/students'
+    | '/studio/testimonials'
+    | '/studio/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  AdminRoute: typeof AdminRouteWithChildren
   AuthRoute: typeof AuthRoute
   BlogRoute: typeof BlogRouteWithChildren
   ContactRoute: typeof ContactRoute
@@ -277,6 +276,7 @@ export interface RootRouteChildren {
   InstrumentsRoute: typeof InstrumentsRoute
   ProgramsRoute: typeof ProgramsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StudioRoute: typeof StudioRouteWithChildren
   TestimonialsRoute: typeof TestimonialsRoute
 }
 
@@ -287,6 +287,13 @@ declare module '@tanstack/react-router' {
       path: '/testimonials'
       fullPath: '/testimonials'
       preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio': {
+      id: '/studio'
+      path: '/studio'
+      fullPath: '/studio'
+      preLoaderRoute: typeof StudioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -345,13 +352,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -366,12 +366,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/': {
-      id: '/admin/'
+    '/studio/': {
+      id: '/studio/'
       path: '/'
-      fullPath: '/admin/'
-      preLoaderRoute: typeof AdminIndexRouteImport
-      parentRoute: typeof AdminRoute
+      fullPath: '/studio/'
+      preLoaderRoute: typeof StudioIndexRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/testimonials': {
+      id: '/studio/testimonials'
+      path: '/testimonials'
+      fullPath: '/studio/testimonials'
+      preLoaderRoute: typeof StudioTestimonialsRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/students': {
+      id: '/studio/students'
+      path: '/students'
+      fullPath: '/studio/students'
+      preLoaderRoute: typeof StudioStudentsRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/packages': {
+      id: '/studio/packages'
+      path: '/packages'
+      fullPath: '/studio/packages'
+      preLoaderRoute: typeof StudioPackagesRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/messages': {
+      id: '/studio/messages'
+      path: '/messages'
+      fullPath: '/studio/messages'
+      preLoaderRoute: typeof StudioMessagesRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/gallery': {
+      id: '/studio/gallery'
+      path: '/gallery'
+      fullPath: '/studio/gallery'
+      preLoaderRoute: typeof StudioGalleryRouteImport
+      parentRoute: typeof StudioRoute
+    }
+    '/studio/blog': {
+      id: '/studio/blog'
+      path: '/blog'
+      fullPath: '/studio/blog'
+      preLoaderRoute: typeof StudioBlogRouteImport
+      parentRoute: typeof StudioRoute
     }
     '/blog/$slug': {
       id: '/blog/$slug'
@@ -380,72 +422,8 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
-    '/admin/testimonials': {
-      id: '/admin/testimonials'
-      path: '/testimonials'
-      fullPath: '/admin/testimonials'
-      preLoaderRoute: typeof AdminTestimonialsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/students': {
-      id: '/admin/students'
-      path: '/students'
-      fullPath: '/admin/students'
-      preLoaderRoute: typeof AdminStudentsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/packages': {
-      id: '/admin/packages'
-      path: '/packages'
-      fullPath: '/admin/packages'
-      preLoaderRoute: typeof AdminPackagesRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/messages': {
-      id: '/admin/messages'
-      path: '/messages'
-      fullPath: '/admin/messages'
-      preLoaderRoute: typeof AdminMessagesRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/gallery': {
-      id: '/admin/gallery'
-      path: '/gallery'
-      fullPath: '/admin/gallery'
-      preLoaderRoute: typeof AdminGalleryRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    '/admin/blog': {
-      id: '/admin/blog'
-      path: '/blog'
-      fullPath: '/admin/blog'
-      preLoaderRoute: typeof AdminBlogRouteImport
-      parentRoute: typeof AdminRoute
-    }
   }
 }
-
-interface AdminRouteChildren {
-  AdminBlogRoute: typeof AdminBlogRoute
-  AdminGalleryRoute: typeof AdminGalleryRoute
-  AdminMessagesRoute: typeof AdminMessagesRoute
-  AdminPackagesRoute: typeof AdminPackagesRoute
-  AdminStudentsRoute: typeof AdminStudentsRoute
-  AdminTestimonialsRoute: typeof AdminTestimonialsRoute
-  AdminIndexRoute: typeof AdminIndexRoute
-}
-
-const AdminRouteChildren: AdminRouteChildren = {
-  AdminBlogRoute: AdminBlogRoute,
-  AdminGalleryRoute: AdminGalleryRoute,
-  AdminMessagesRoute: AdminMessagesRoute,
-  AdminPackagesRoute: AdminPackagesRoute,
-  AdminStudentsRoute: AdminStudentsRoute,
-  AdminTestimonialsRoute: AdminTestimonialsRoute,
-  AdminIndexRoute: AdminIndexRoute,
-}
-
-const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
@@ -457,10 +435,32 @@ const BlogRouteChildren: BlogRouteChildren = {
 
 const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
+interface StudioRouteChildren {
+  StudioBlogRoute: typeof StudioBlogRoute
+  StudioGalleryRoute: typeof StudioGalleryRoute
+  StudioMessagesRoute: typeof StudioMessagesRoute
+  StudioPackagesRoute: typeof StudioPackagesRoute
+  StudioStudentsRoute: typeof StudioStudentsRoute
+  StudioTestimonialsRoute: typeof StudioTestimonialsRoute
+  StudioIndexRoute: typeof StudioIndexRoute
+}
+
+const StudioRouteChildren: StudioRouteChildren = {
+  StudioBlogRoute: StudioBlogRoute,
+  StudioGalleryRoute: StudioGalleryRoute,
+  StudioMessagesRoute: StudioMessagesRoute,
+  StudioPackagesRoute: StudioPackagesRoute,
+  StudioStudentsRoute: StudioStudentsRoute,
+  StudioTestimonialsRoute: StudioTestimonialsRoute,
+  StudioIndexRoute: StudioIndexRoute,
+}
+
+const StudioRouteWithChildren =
+  StudioRoute._addFileChildren(StudioRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  AdminRoute: AdminRouteWithChildren,
   AuthRoute: AuthRoute,
   BlogRoute: BlogRouteWithChildren,
   ContactRoute: ContactRoute,
@@ -469,6 +469,7 @@ const rootRouteChildren: RootRouteChildren = {
   InstrumentsRoute: InstrumentsRoute,
   ProgramsRoute: ProgramsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StudioRoute: StudioRouteWithChildren,
   TestimonialsRoute: TestimonialsRoute,
 }
 export const routeTree = rootRouteImport
