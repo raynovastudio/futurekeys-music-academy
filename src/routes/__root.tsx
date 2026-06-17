@@ -1,3 +1,4 @@
+import { createServerFn } from "@tanstack/react-start";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -7,7 +8,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
@@ -15,6 +16,22 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
+
+const trackVisit = createServerFn({ method: "POST" })
+  .handler(async ({ request }) => {
+    try {
+      const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+      const url = new URL(request.headers.get("referer") || "/");
+      const path = url.pathname;
+      if (path.startsWith("/admin") || path.startsWith("/auth")) return;
+      await supabaseAdmin.from("page_visits").insert({
+        path,
+        referrer: request.headers.get("referer") || null,
+        user_agent: request.headers.get("user-agent") || null,
+        ip_address: request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || null,
+      });
+    } catch {}
+  });
 
 function NotFoundComponent() {
   return (
@@ -157,6 +174,13 @@ import { useRouterState } from "@tanstack/react-router";
 
 function LayoutShell() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const tracked = useRef<string>("");
+  useEffect(() => {
+    if (tracked.current !== pathname) {
+      tracked.current = pathname;
+      trackVisit();
+    }
+  }, [pathname]);
   const isAdmin = pathname.startsWith("/admin");
   if (isAdmin) {
     return <Outlet />;

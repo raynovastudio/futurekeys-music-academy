@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet, Link, useRouterState, redirect } from "@tanstack/react-router";
 import { useState } from "react";
-import { LayoutDashboard, Users, FileText, Image as ImageIcon, MessageSquare, Star, Package, LogOut, Menu, X } from "lucide-react";
+import { LayoutDashboard, Users, FileText, Image as ImageIcon, MessageSquare, Star, Package, BarChart3, LogOut, Menu, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -25,6 +25,7 @@ const nav: Array<{ to: string; label: string; icon: any; exact?: boolean }> = [
   { to: "/admin/gallery", label: "Gallery", icon: ImageIcon },
   { to: "/admin/testimonials", label: "Testimonials", icon: Star },
   { to: "/admin/packages", label: "Packages", icon: Package },
+  { to: "/admin/analytics", label: "Analytics", icon: BarChart3 },
 ];
 
 function AdminLayout() {

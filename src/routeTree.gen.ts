@@ -29,6 +29,7 @@ import { Route as AdminPackagesRouteImport } from './routes/admin.packages'
 import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
 import { Route as AdminBlogRouteImport } from './routes/admin.blog'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 
 const TestimonialsRoute = TestimonialsRouteImport.update({
   id: '/testimonials',
@@ -130,6 +131,11 @@ const AdminBlogRoute = AdminBlogRouteImport.update({
   path: '/blog',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -144,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -165,6 +172,7 @@ export interface FileRoutesByTo {
   '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -188,6 +196,7 @@ export interface FileRoutesById {
   '/programs': typeof ProgramsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/testimonials': typeof TestimonialsRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -212,6 +221,7 @@ export interface FileRouteTypes {
     | '/programs'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/admin/analytics'
     | '/admin/blog'
     | '/admin/gallery'
     | '/admin/messages'
@@ -233,6 +243,7 @@ export interface FileRouteTypes {
     | '/programs'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/admin/analytics'
     | '/admin/blog'
     | '/admin/gallery'
     | '/admin/messages'
@@ -255,6 +266,7 @@ export interface FileRouteTypes {
     | '/programs'
     | '/sitemap.xml'
     | '/testimonials'
+    | '/admin/analytics'
     | '/admin/blog'
     | '/admin/gallery'
     | '/admin/messages'
@@ -422,10 +434,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBlogRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminBlogRoute: typeof AdminBlogRoute
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminMessagesRoute: typeof AdminMessagesRoute
@@ -436,6 +456,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminBlogRoute: AdminBlogRoute,
   AdminGalleryRoute: AdminGalleryRoute,
   AdminMessagesRoute: AdminMessagesRoute,
