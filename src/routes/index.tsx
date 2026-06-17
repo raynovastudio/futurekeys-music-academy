@@ -116,12 +116,12 @@ function HomePage() {
         </div>
         <div className="group relative">
           <div className="flex gap-5 marquee-track">
-            {[
+            {((src) => [...src, ...src])([
               ...Array.from({ length: 7 }, (_, i) => `/Gallery/performances/performances-${i + 1}.jpeg`),
               ...Array.from({ length: 7 }, (_, i) => `/Gallery/lessons/lessons-${i + 1}.jpeg`),
               ...Array.from({ length: 7 }, (_, i) => `/Gallery/events/events-${i + 1}.jpeg`),
               ...Array.from({ length: 6 }, (_, i) => `/Gallery/instruments/instruments-${i + 1}.jpeg`),
-            ].flatMap((src) => [src, src]).map((src, i) => (
+            ]).map((src, i) => (
               <div key={i} className="shrink-0 w-52 h-36 md:w-60 md:h-40 rounded-2xl overflow-hidden shadow-card group-hover:paused">
                 <img src={src} alt="" loading="lazy" className="w-full h-full object-cover" />
               </div>
