@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/section";
 import { supabase } from "@/integrations/supabase/client";
-import lessonImg from "@/assets/programs-lesson.jpg";
+
 
 export const Route = createFileRoute("/programs")({
   head: () => ({
@@ -93,7 +93,7 @@ function ProgramsPage() {
       <Section muted>
         <div className="grid gap-10 lg:grid-cols-2 items-center max-w-6xl mx-auto">
           <div className="relative overflow-hidden rounded-2xl shadow-premium order-2 lg:order-1 aspect-[16/9]">
-            <img src={lessonImg} alt="FutureKeys students together" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="/Programs Page.jpeg" alt="FutureKeys students together" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
           </div>
           <div className="order-1 lg:order-2">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-navy">Not sure which package fits?</h2>

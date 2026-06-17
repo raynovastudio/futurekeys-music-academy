@@ -3,7 +3,7 @@ import { Target, Eye, Sparkles, Award, Shield, Lightbulb, Smile, Crown, Trending
 import { Section, SectionHeader } from "@/components/section";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import aboutStudent from "@/assets/about-student.jpg";
+
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -55,7 +55,7 @@ function AboutPage() {
           </div>
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl shadow-premium">
-              <img src={aboutStudent} alt="Student learning piano at FutureKeys" loading="lazy" width={1200} height={800} className="w-full h-auto object-cover" />
+              <img src="/About Us.jpeg" alt="Students at FutureKeys Music Academy" loading="lazy" width={1200} height={800} className="w-full h-auto object-cover" />
             </div>
             <Card className="absolute -bottom-6 -left-6 p-5 bg-gradient-hero text-navy-foreground border-0 shadow-gold max-w-[260px] hidden md:block">
               <Sparkles className="h-7 w-7 text-gold mb-2" />
