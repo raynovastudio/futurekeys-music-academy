@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useMemo } from "react";
-import { X, ChevronLeft, ChevronRight, Music, Filter } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Section } from "@/components/section";
 
 export const Route = createFileRoute("/gallery")({
@@ -20,30 +20,33 @@ export const Route = createFileRoute("/gallery")({
 const categories = ["All", "Performances", "Lessons", "Events", "Instruments"];
 
 const galleryItems = [
-  ...Array.from({ length: 7 }, (_, i) => ({
-    id: `perf-${i + 1}`,
-    title: `Student Performance ${i + 1}`,
-    category: "Performances",
-    src: `/Gallery/performances/performances-${i + 1}.jpeg`,
-  })),
-  ...Array.from({ length: 7 }, (_, i) => ({
-    id: `less-${i + 1}`,
-    title: `Music Lesson ${i + 1}`,
-    category: "Lessons",
-    src: `/Gallery/lessons/lessons-${i + 1}.jpeg`,
-  })),
-  ...Array.from({ length: 7 }, (_, i) => ({
-    id: `evt-${i + 1}`,
-    title: `Event ${i + 1}`,
-    category: "Events",
-    src: `/Gallery/events/events-${i + 1}.jpeg`,
-  })),
-  ...Array.from({ length: 6 }, (_, i) => ({
-    id: `inst-${i + 1}`,
-    title: `Instrument ${i + 1}`,
-    category: "Instruments",
-    src: `/Gallery/instruments/instruments-${i + 1}.jpeg`,
-  })),
+  { id: "perf-1", title: "End-of-Term Piano Recital", category: "Performances", src: "/Gallery/performances/performances-1.jpeg" },
+  { id: "perf-2", title: "Student Solo Performance", category: "Performances", src: "/Gallery/performances/performances-2.jpeg" },
+  { id: "perf-3", title: "Guitar Ensemble Showcase", category: "Performances", src: "/Gallery/performances/performances-3.jpeg" },
+  { id: "perf-4", title: "Young Pianist in Concert", category: "Performances", src: "/Gallery/performances/performances-4.jpeg" },
+  { id: "perf-5", title: "Duet Performance Night", category: "Performances", src: "/Gallery/performances/performances-5.jpeg" },
+  { id: "perf-6", title: "Violin Solo Recital", category: "Performances", src: "/Gallery/performances/performances-6.jpeg" },
+  { id: "perf-7", title: "Group Music Concert", category: "Performances", src: "/Gallery/performances/performances-7.jpeg" },
+  { id: "less-1", title: "Piano Practice Session", category: "Lessons", src: "/Gallery/lessons/lessons-1.jpeg" },
+  { id: "less-2", title: "Guitar Chord Mastery", category: "Lessons", src: "/Gallery/lessons/lessons-2.jpeg" },
+  { id: "less-3", title: "Drum Technique Class", category: "Lessons", src: "/Gallery/lessons/lessons-3.jpeg" },
+  { id: "less-4", title: "Violin Bow Control", category: "Lessons", src: "/Gallery/lessons/lessons-4.jpeg" },
+  { id: "less-5", title: "Voice Training Warm-Up", category: "Lessons", src: "/Gallery/lessons/lessons-5.jpeg" },
+  { id: "less-6", title: "Keyboard Fundamentals", category: "Lessons", src: "/Gallery/lessons/lessons-6.jpeg" },
+  { id: "less-7", title: "One-on-One Music Tutoring", category: "Lessons", src: "/Gallery/lessons/lessons-7.jpeg" },
+  { id: "evt-1", title: "Music Academy Open Day", category: "Events", src: "/Gallery/events/events-1.jpeg" },
+  { id: "evt-2", title: "Masterclass Workshop", category: "Events", src: "/Gallery/events/events-2.jpeg" },
+  { id: "evt-3", title: "Student Graduation Ceremony", category: "Events", src: "/Gallery/events/events-3.jpeg" },
+  { id: "evt-4", title: "Music Camp Festival", category: "Events", src: "/Gallery/events/events-4.jpeg" },
+  { id: "evt-5", title: "Parent-Teacher Music Forum", category: "Events", src: "/Gallery/events/events-5.jpeg" },
+  { id: "evt-6", title: "Community Outreach Concert", category: "Events", src: "/Gallery/events/events-6.jpeg" },
+  { id: "evt-7", title: "Awards and Recognition Day", category: "Events", src: "/Gallery/events/events-7.jpeg" },
+  { id: "inst-1", title: "Grand Piano Showcase", category: "Instruments", src: "/Gallery/instruments/instruments-1.jpeg" },
+  { id: "inst-2", title: "Acoustic Guitar Display", category: "Instruments", src: "/Gallery/instruments/instruments-2.jpeg" },
+  { id: "inst-3", title: "Drum Set Arrangement", category: "Instruments", src: "/Gallery/instruments/instruments-3.jpeg" },
+  { id: "inst-4", title: "Violin Craftsmanship", category: "Instruments", src: "/Gallery/instruments/instruments-4.jpeg" },
+  { id: "inst-5", title: "Electronic Keyboard Setup", category: "Instruments", src: "/Gallery/instruments/instruments-5.jpeg" },
+  { id: "inst-6", title: "Studio Recording Equipment", category: "Instruments", src: "/Gallery/instruments/instruments-6.jpeg" },
 ];
 
 function GalleryPage() {
