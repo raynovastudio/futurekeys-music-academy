@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Piano, Music2, Music3, Music4, Mic2, Guitar } from "lucide-react";
+import { Piano, Music3, Music4, Mic2, Guitar } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/section";
 import pianoImg from "@/assets/instr-piano.jpg";
-import keyboardImg from "@/assets/instr-keyboard.jpg";
+import bassGuitarImg from "@/assets/instr-bass-guitar.png";
 import guitarImg from "@/assets/instr-guitar.jpg";
 import drumsImg from "@/assets/instr-drums.jpg";
 import violinImg from "@/assets/instr-violin.jpg";
@@ -13,10 +13,10 @@ import voiceImg from "@/assets/instr-voice.jpg";
 export const Route = createFileRoute("/instruments")({
   head: () => ({
     meta: [
-      { title: "Instruments We Teach | Piano, Guitar, Drums, Violin & Voice" },
-      { name: "description", content: "Expert music instruction in piano, keyboard, guitar, drums, violin and voice. Beginner to advanced levels for children and adults in Uyo & worldwide." },
+      { title: "Instruments We Teach | Piano, Bass Guitar, Drums, Violin & Voice" },
+      { name: "description", content: "Expert music instruction in piano, bass guitar, guitar, drums, violin and voice. Beginner to advanced levels for children and adults in Uyo & worldwide." },
       { property: "og:title", content: "Instruments — FutureKeys Music Academy" },
-      { property: "og:description", content: "Piano, guitar, drums, violin, voice & keyboard. World-class instruction for all levels." },
+      { property: "og:description", content: "Piano, bass guitar, drums, violin, voice & guitar. World-class instruction for all levels." },
       { property: "og:url", content: "https://futurekeysacademy.com/instruments" },
     ],
     links: [{ rel: "canonical", href: "https://futurekeysacademy.com/instruments" }],
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/instruments")({
 
 const instruments = [
   { name: "Piano", icon: Piano, desc: "Master the king of instruments. From first notes to complex compositions.", level: "Beginner to Advanced", image: pianoImg },
-  { name: "Keyboard", icon: Music2, desc: "Versatile electronic playing with sounds, rhythms and modern technique.", level: "Beginner to Advanced", image: keyboardImg },
+  { name: "Bass Guitar", icon: Guitar, desc: "Deep, groovy low-end foundation. Essential for rhythm and band playing.", level: "Beginner to Advanced", image: bassGuitarImg },
   { name: "Guitar", icon: Guitar, desc: "Acoustic and electric. Chords, rhythm, fingerstyle, and performance.", level: "Beginner to Advanced", image: guitarImg },
   { name: "Drums", icon: Music3, desc: "Rhythm, coordination and power. Build a solid foundation behind the kit.", level: "Beginner to Advanced", image: drumsImg },
   { name: "Violin", icon: Music4, desc: "Refined classical technique with bow control and ear training.", level: "Beginner to Advanced", image: violinImg },
